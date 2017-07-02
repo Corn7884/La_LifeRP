@@ -17,6 +17,12 @@ local police = {
   {name="Fusil à pompe", id="WEAPON_PUMPSHOTGUN"},
   {name="Pistolet", id="WEAPON_PISTOL"},
   {name="Matraque", id="WEAPON_NIGHTSTICK"},
+  {name="Parachute", id="gadget_parachute"},
+  {name="Vision nocturne", id="GADGET_NIGHTVISION"},
+  {name="Lampe torche", id="WEAPON_FLASHLIGHT"},
+  {name="Sniper", id="WEAPON_HEAVYSNIPER"},
+  {name="Extincteur", id="WEAPON_FIREEXTINGUISHER"},
+  {name="Feux de détresse", id="WEAPON_FLARE"},
 }
 
 local jobs = {
@@ -81,6 +87,52 @@ AddEventHandler("jobspolice:changeSkin", function(skinName, id)--skinName)
   end)
 end)
 
+RegisterNetEvent("jobspolice:changeSkin3")
+AddEventHandler("jobspolice:changeSkin3", function(skinName, id)--skinName)
+  Citizen.CreateThread(function()
+  SetPedComponentVariation(GetPlayerPed(-1), 8, 58, 0, 0)
+  end)
+end)
+
+RegisterNetEvent("jobspolice:changeSkin2")
+AddEventHandler("jobspolice:changeSkin2", function(skinName, id)--skinName)
+  Citizen.CreateThread(function()
+  SetPedComponentVariation(GetPlayerPed(-1), 8, 59, 1, 0)--Gilet
+  SetPedComponentVariation(GetPlayerPed(-1), 9, 0, 0, 0)
+  end)
+end)
+
+RegisterNetEvent("jobspolice:changeSkin4")
+AddEventHandler("jobspolice:changeSkin4", function(skinName, id)--skinName)
+  Citizen.CreateThread(function()
+  SetPedComponentVariation(GetPlayerPed(-1), 1, 52, 0, 0)
+  end)
+end)
+
+RegisterNetEvent("jobspolice:changeSkin5")
+AddEventHandler("jobspolice:changeSkin5", function(skinName, id)--skinName)
+  Citizen.CreateThread(function()
+  SetPedComponentVariation(GetPlayerPed(-1), 9, 10, 1, 0)
+  SetPedComponentVariation(GetPlayerPed(-1), 8, 58, 0, 0)
+  end)
+end)
+
+RegisterNetEvent("jobspolice:changeSkin6")
+AddEventHandler("jobspolice:changeSkin6", function(skinName, id)--skinName)
+  Citizen.CreateThread(function()
+  SetPedComponentVariation(GetPlayerPed(-1), 3, 0, 0, 0)--Gants
+  SetPedComponentVariation(GetPlayerPed(-1), 4, 14, 12, 0)--Jean
+  SetPedComponentVariation(GetPlayerPed(-1), 6, 16, 0, 0)--Chaussure
+  SetPedComponentVariation(GetPlayerPed(-1), 8, 0, 0, 0)--mattraque
+  SetPedComponentVariation(GetPlayerPed(-1), 11, 0, 5, 0)--Veste
+  SetPedComponentVariation(GetPlayerPed(-1), 9, 0, 0, 0)--gilet
+  SetPedComponentVariation(GetPlayerPed(-1), 1, 0, 0, 0)--cagoule
+  SetPedPropIndex(GetPlayerPed(-1), 2, 0, 0, 1)--Oreillete
+  SetPedPropIndex(GetPlayerPed(-1), 6, 0, 0, 1)--Montre
+  SetPedPropIndex(GetPlayerPed(-1), 1, 0, 0, 1)--Lunette
+  SetPedComponentVariation(GetPlayerPed(-1), 10, 0, 0, 0)--Grade
+  end)
+end)
 ---------------------------------- CITIZEN ----------------------------------
 local ServerParking = {0, false}
 local ParkingPolice = {
@@ -152,6 +204,12 @@ Citizen.CreateThread(function()
         else
           spawncar = false
         end
+		
+		local mods = {}
+		for i = 0,24 do
+			mods[i] = GetVehicleMod(veh,i)
+		end
+		
         if spawncar == true then
           SetVehicleNumberPlateText(veh, plate)
           SetVehicleOnGroundProperly(veh)
@@ -160,8 +218,11 @@ Citizen.CreateThread(function()
           SetNetworkIdCanMigrate(id, true)
           SetVehRadioStation(veh, "OFF")
           SetEntityInvincible(veh, false)
-          SetVehicleEngineTorqueMultiplier( veh, 1.25 )
-          SetVehicleEnginePowerMultiplier( veh, 1.25 )
+		  SetVehicleMod(veh, 11, 3)
+		  SetVehicleMod(veh, 12, 3)
+		  SetVehicleMod(veh, 13, 3)
+          SetVehicleEngineTorqueMultiplier( veh, 5.0 )
+          SetVehicleEnginePowerMultiplier( veh, 35.0 )
           SetPedIntoVehicle(GetPlayerPed(-1),  veh,  -1)
           SetEntityAsMissionEntity(veh, true, true)
           TriggerEvent("wrapper:vehPersist", veh)

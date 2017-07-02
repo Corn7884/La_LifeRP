@@ -14,3 +14,12 @@ client_script "morg_client.lua"
 server_script "morg_server.lua"
 
 client_script "org_client.lua"
+
+client_script "ferme_jobs.lua"
+
+client_script "peche_jobs.lua"
+
+client_script "taxi_client.lua"
+server_script "taxi_sv.lua"
+
+client_script "vigneron_jobs.lua"

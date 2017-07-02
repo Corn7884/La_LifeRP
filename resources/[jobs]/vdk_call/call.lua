@@ -14,14 +14,14 @@ Citizen.CreateThread(function()
         -- Press X key to get the call
         if IsControlJustPressed(1, 73) and callActive then
             TriggerServerEvent("call:getCall", work)
-            SendNotification("Vous avez pris l'appel")
+            SendNotification("~g~Vous avez pris l'appel~s~")
             target.blip = AddBlipForCoord(target.pos.x, target.pos.y, target.pos.z)
             SetBlipRoute(target.blip, true)
             haveTarget = true
             callActive = false
         -- Press N key to declie the call
         elseif IsControlJustPressed(1, 249) and callActive then
-            SendNotification("Vous avez refusé l'appel")
+            SendNotification("~r~Vous avez refusé l'appel~s~")
             callActive = false
         end
         if haveTarget then
@@ -40,21 +40,21 @@ AddEventHandler("call:callIncoming", function(job, pos)
     callActive = true
     work = job
     target.pos = pos
-    SendNotification("Appuyez sur ~g~X~s~ pour prendre l'appel ou ~g~N~s~ pour le refuser")
+    SendNotification("Appuyez sur ~g~X~s~ pour prendre l'appel ou ~r~N~s~ pour le refuser")
 end)
 
 RegisterNetEvent("call:taken")
 AddEventHandler("call:taken", function()
     callActive = false
-    SendNotification("L'appel a été pris")
+    SendNotification("~g~L'appel a été pris~s~")
 end)
 
 RegisterNetEvent("target:call:taken")
 AddEventHandler("target:call:taken", function(taken)
     if taken == 1 then
-        SendNotification("Quelqu'un arrive !")
+        SendNotification("~g~Quelqu'un arrive !~s~")
     elseif taken == 0 then
-        SendNotification("Personne ne viendra, désolé...")
+        SendNotification("~r~Personne ne viendra, désolé...~s~")
     elseif taken == 2 then
         SendNotification("Veuillez rappeler dans quelques instants")
     end

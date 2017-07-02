@@ -90,6 +90,47 @@ function clearJob()
   end
   onJobLegal = 0
   Citizen.Trace("Cleared")
-  TriggerServerEvent("vmenu:lastChar")
-  EndingDay = false
 end
+
+Citizen.CreateThread(function()
+  while true do
+    Citizen.Wait(0)
+    if onJobLegal == 3 then
+      clearJob2()
+    end
+  end
+end)
+
+function clearJob2()
+  if ( DoesEntityExist(MISSION.truck2) ) then
+    SetEntityAsNoLongerNeeded(MISSION.truck2)
+    SetVehicleDoorsLocked(MISSION.truck2, 2)
+    SetVehicleUndriveable(MISSION.truck2, true)
+
+    local temptruck2 = MISSION.truck2
+
+    MISSION.truck2 = 0
+
+    Wait(2000)
+    SetEntityAsMissionEntity(temptruck2, true, true)
+    Citizen.InvokeNative(0xEA386986E786A54F, Citizen.PointerValueIntInitialized(temptruck2))
+  end
+  onJobLegal = 0
+  Citizen.Trace("Cleared")
+end
+
+-----------------------Affichage blip vestiaire--------------------------------
+
+local DrawMarkerShow = true
+
+Citizen.CreateThread(function()
+  while true do
+    Citizen.Wait(0)
+    if DrawMarkerShow then
+      DrawMarker(0,-1888.99267578125,2049.65966796875,139.984771728516,0,0,0,0,0,0,2.001,2.0001,0.5001,0,155,255,200,0,0,0,0)--vigneron
+      DrawMarker(0,2906.1315917969,4406.9545898438,49.162428283691,0,0,0,0,0,0,2.001,2.0001,0.5001,0,155,255,200,0,0,0,0)--ferme
+      DrawMarker(0,-1593.9884033203,5192.3881835938,3.3100876808167,0,0,0,0,0,0,2.001,2.0001,0.5001,0,155,255,200,0,0,0,0)--peche
+      DrawMarker(0,895.14135742188,-179.02168273926,73.700256347656,0,0,0,0,0,0,2.001,2.0001,0.5001,0,155,255,200,0,0,0,0)--taxi
+    end
+  end
+end)

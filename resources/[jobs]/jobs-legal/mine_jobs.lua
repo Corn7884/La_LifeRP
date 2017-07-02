@@ -493,6 +493,7 @@ function mineEnding()
   removeBlip()
   Wait(100)
   onJobLegal = 2
+  camionSortie = false
   TriggerServerEvent("vmenu:lastChar")
 end
 
