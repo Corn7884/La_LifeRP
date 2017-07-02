@@ -99,3 +99,23 @@ end)
 AddEventHandler('menupolice:consultwanted', function()
 	TriggerServerEvent("wanted:getWanted")
 end)
+
+AddEventHandler("menupolice:PoliceOG1", function(target, rangPolice) -- 0 rien, 1 Cadet, 2 Brigadier, 3 Sergent, 4 Lieutenant, 5 Capitaine, 6 Commandant, 7 FBI
+        if target ~= -1 then
+                nameTarget = "Vous cilblez un civil"
+        else
+                nameTarget = "Aucune target"
+        end
+        VMenu.police = true
+        VMenu.ResetMenu(98, "", "default")
+        Wait(100)
+        VMenu.AddFunc(98, "Retour", "vmenu:MainMenuOG", {}, "Retour")
+        VMenu.AddSep(98, tostring(nameTarget))
+        if rangPolice == 7 then
+                VMenu.AddSep(98, "FBI")
+        end
+        VMenu.AddFunc(98, "Tenue", "jobspolice:changeSkin3", {}, "Accéder")
+        VMenu.AddFunc(98, "Gilet", "jobspolice:changeSkin2", {}, "Accéder")
+     
+        -- Ajouter/Retirer dans le commissariat
+end)

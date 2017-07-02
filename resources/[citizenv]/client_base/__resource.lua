@@ -8,11 +8,17 @@ client_script 'handsup.lua'
 client_script 'vocalchat.lua'
 client_script 'stamina.lua'
 client_script 'sirencontrols.net.dll'
+client_script 'spawnpnj.lua'
 
 client_script 'lock/client/main.lua'
 client_script 'lock/lock.lua'
 
 client_script 'carhud.lua'
+
+client_script 'ko_client.lua'
+client_script 'stripclub.lua'
+client_script 'smoke.lua'
+client_script 'tequilalla.lua'
 
 server_script 'lock/server/main.lua'
 server_script 'lock/lock_s.lua'

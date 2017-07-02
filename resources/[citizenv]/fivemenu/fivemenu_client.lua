@@ -58,7 +58,7 @@ VMenu = {
 	width = 0.23,
 
 	-- Nombre de lignes affichées sur le menu
-	itemsOnScreen = 9,
+	itemsOnScreen = 17,
 
 	HeaderDict = "fivemenu", -- Nom du Fichier Dictionnaire sans le ".ytd" qui est placé dans le dossier "stream"
 
@@ -257,7 +257,7 @@ function VMenu.DrawItems(td)
 	local footerY = VMenu.BgY + (VMenu.BgHeight / 2)
 
 	VMenu.DrawText(menuTitle, VMenu.TextX, VMenu.top + VMenu.HdHeight + 0.005, 0.30, 0.33, 8, false, false, false, false, 255, 255, 255, 255)
-	VMenu.DrawText(count, (VMenu.left + VMenu.width) - 0.02, VMenu.top + VMenu.HdHeight + 0.005, 0.30, 0.33, 8, false, false, false, false, 255, 255, 255, 255)
+	VMenu.DrawText(count, (VMenu.left + VMenu.width) - 0.028, VMenu.top + VMenu.HdHeight + 0.005, 0.30, 0.33, 8, false, false, false, false, 255, 255, 255, 255)
 
 	for i = 1 + VMenu.scroll, numItems do
 		if i > VMenu.itemsOnScreen + VMenu.scroll then
@@ -954,6 +954,10 @@ function Construct()
 	VMenu.AddMenu(menu, "", "cloth") -- default = Header "Texte" sur fond bleu
 	VMenu.AddFunc(menu, "En service", "vmenu:policeState", {1}, "Être en service")
 	VMenu.AddFunc(menu, "En service civil", "vmenu:policeStateCivil", {1}, "Être en service")
+	VMenu.AddFunc(menu, "Gilet jaune", "jobspolice:changeSkin2", {1}, "gilet")
+    VMenu.AddFunc(menu, "Gilet ballistique", "jobspolice:changeSkin5", {1}, "gilet ballistique")
+    VMenu.AddFunc(menu, "Cagoule", "jobspolice:changeSkin4", {1}, "cagoule")
+    VMenu.AddFunc(menu, "Tout Enlever", "jobspolice:changeSkin6", {1}, "vide")
 	VMenu.AddFunc(menu, "Hors service", "vmenu:policeState", {0}, "Être hors service")
 
 	local menu = 6
@@ -962,6 +966,11 @@ function Construct()
 	VMenu.AddFunc(menu, "Fusil à pompe", "vmenu:getArmory", {"WEAPON_PUMPSHOTGUN"}, "Obtenir cette arme")
 	VMenu.AddFunc(menu, "Pistolet", "vmenu:getArmory", {"WEAPON_PISTOL"}, "Obtenir cette arme")
 	VMenu.AddFunc(menu, "Matraque", "vmenu:getArmory", {"WEAPON_NIGHTSTICK"}, "Obtenir cette arme")
+	VMenu.AddFunc(menu, "Parachute", "vmenu:getArmory", {"gadget_parachute"}, "Obtenir le parachute")
+	VMenu.AddFunc(menu, "Lampe torche", "vmenu:getArmory", {"WEAPON_FLASHLIGHT"}, "Obtenir la lampe")
+	VMenu.AddFunc(menu, "Sniper", "vmenu:getArmory", {"WEAPON_HEAVYSNIPER"}, "Obtenir cette arme")
+	VMenu.AddFunc(menu, "Extincteur", "vmenu:getArmory", {"WEAPON_FIREEXTINGUISHER"}, "Obtenir cette object")
+	VMenu.AddFunc(menu, "Feux de détresse", "vmenu:getArmory", {"WEAPON_FLARE"}, "Obtenir cette object")
 
 	local menu = 7
 	VMenu.AddMenu(menu, "", "default") -- default = Header "Texte" sur fond bleu
@@ -1215,13 +1224,17 @@ function getGarageHelicoPolice()
 end
 
 function getLockerPolice()
-	VMenu.ResetMenu(5, "", "default")
-	VMenu.AddMenu(5, "", "default") -- default = Header "Texte" sur fond bleu
-	VMenu.AddFunc(5, "En service", "vmenu:policeState", {1}, "Être en service")
-	if User.police >= 4 then
-		VMenu.AddFunc(5, "En service civil", "vmenu:policeStateCivil", {1}, "Être en service")
-	end
-	VMenu.AddFunc(5, "Hors service", "vmenu:policeState", {0}, "Être hors service")
+    VMenu.ResetMenu(5, "", "default")
+    VMenu.AddMenu(5, "", "default") -- default = Header "Texte" sur fond bleu
+    VMenu.AddFunc(5, "En service", "vmenu:policeState", {1}, "Être en service")
+    VMenu.AddFunc(5, "Gilet jaune", "jobspolice:changeSkin2", {1}, "gilet")
+    VMenu.AddFunc(5, "Gilet ballistique", "jobspolice:changeSkin5", {1}, "gilet ballistique")
+    VMenu.AddFunc(5, "Cagoule", "jobspolice:changeSkin4", {1}, "cagoule")
+    VMenu.AddFunc(5, "Tout Enlever", "jobspolice:changeSkin6", {1}, "vide")
+    if User.police >= 4 then
+        VMenu.AddFunc(5, "En service civil", "vmenu:policeStateCivil", {1}, "Être en service")
+    end
+    VMenu.AddFunc(5, "Hors service", "vmenu:policeState", {0}, "Être hors service")
 end
 
 function getTankerCompany()

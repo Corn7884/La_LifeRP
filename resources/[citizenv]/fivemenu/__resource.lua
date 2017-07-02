@@ -26,5 +26,8 @@ client_script {
 	'tel_client.lua',
 	'distributeur_client.lua',
 	'animations_client.lua',
+	'distributeurcoca_client.lua',
+	'hotdog_client.lua',
 	'localization.lua'
 }
+

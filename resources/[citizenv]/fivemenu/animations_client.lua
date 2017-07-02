@@ -8,11 +8,25 @@ AddEventHandler("menuanim:AnimOG", function(target)
 	VMenu.AddFunc(98, "Jouer de la musique", "anim:play", {3}, "Valider")
 	VMenu.AddFunc(98, "Regarder la carte", "anim:play", {4}, "Valider")
 	VMenu.AddFunc(98, "Yoga", "anim:play", {5}, "Valider")
-	VMenu.AddFunc(98, "Push up", "anim:play", {6}, "Valider")
-	VMenu.AddFunc(98, "Humble discours", "anim:play", {7}, "Valider")
-	VMenu.AddFunc(98, "Le Nabil en forêt", "anim:play", {8}, "Valider")
+	VMenu.AddFunc(98, "Faire des pompes", "anim:play", {6}, "Valider")
+	VMenu.AddFunc(98, "Discour", "anim:play", {7}, "Valider")
+	VMenu.AddFunc(98, "Danse chelou", "anim:play", {8}, "Valider")
 	VMenu.AddFunc(98, "Viens, je suis là!", "anim:play", {9}, "Valider")
-	VMenu.AddFunc(98, "Two thumbs up", "anim:play", {10}, "Valider")
+	VMenu.AddFunc(98, "Pouces en l'air", "anim:play", {10}, "Valider")
+	VMenu.AddFunc(98, "Planter", "anim:play", {11}, "Valider")
+	VMenu.AddFunc(98, "Assis au sol", "anim:play", {12}, "Valider")
+	VMenu.AddFunc(98, "A plat ventre", "anim:play", {13}, "Valider")
+	VMenu.AddFunc(98, "Fumer une clope", "anim:play", {14}, "Valider")
+	VMenu.AddFunc(98, "Jumelles", "anim:play", {15}, "Valider")
+	VMenu.AddFunc(98, "Assis", "anim:play", {16}, "Valider")
+	VMenu.AddFunc(98, "Sur le dos", "anim:play", {17}, "Valider")
+	VMenu.AddFunc(98, "Dire bonjour", "anim:play", {18}, "Valider")
+	VMenu.AddFunc(98, "Enlacer", "anim:play", {19}, "Valider")
+	VMenu.AddFunc(98, "Signe de la main", "anim:play", {20}, "Valider")
+	VMenu.AddFunc(98, "Dos au mur", "anim:play", {21}, "Valider")
+	VMenu.AddFunc(98, "K.O", "anim:play", {22}, "Valider")
+	VMenu.AddFunc(98, "Musculation", "anim:play", {23}, "Valider")
+	VMenu.AddFunc(98, "Stop anim", "anim:play", {24}, "Valider")
 end)
 
 AddEventHandler("anim:play", function(target, anim)
@@ -39,6 +53,34 @@ AddEventHandler("anim:play", function(target, anim)
 		TriggerEvent("vmenu:anim", "missmic4premiere", "wave_c")
 	elseif anim == 10 then
 		TriggerEvent("vmenu:anim", "mp_action", "thanks_male_06")
+	elseif anim == 11 then
+		PlayScenario("WORLD_HUMAN_GARDENER_PLANT","GENERIC_CURSE_MED" ,"SPEECH_PARAMS_FORCE")
+	elseif anim == 12 then
+		PlayScenario("WORLD_HUMAN_PICNIC","GENERIC_CURSE_MED" ,"SPEECH_PARAMS_FORCE")
+	elseif anim == 13 then
+		PlayScenario("WORLD_HUMAN_SUNBATHE","GENERIC_CURSE_MED" ,"SPEECH_PARAMS_FORCE")
+	elseif anim == 14 then
+		PlayScenario("WORLD_HUMAN_SMOKING","GENERIC_CURSE_MED" ,"SPEECH_PARAMS_FORCE")
+	elseif anim == 15 then
+		PlayScenario("WORLD_HUMAN_BINOCULARS","GENERIC_CURSE_MED" ,"SPEECH_PARAMS_FORCE")
+	elseif anim == 16 then
+		PlayScenario("PROP_HUMAN_SEAT_CHAIR","GENERIC_CURSE_MED" ,"SPEECH_PARAMS_FORCE")
+	elseif anim == 17 then
+		PlayScenario("WORLD_HUMAN_SUNBATHE_BACK","GENERIC_CURSE_MED" ,"SPEECH_PARAMS_FORCE")
+	elseif anim == 18 then
+		TriggerEvent("vmenu:anim", "gestures@m@standing@casual", "gesture_hello")
+	elseif anim == 19 then
+		TriggerEvent("vmenu:anim", "mp_ped_interaction", "kisses_guy_a")
+	elseif anim == 20 then
+		TriggerEvent("vmenu:anim", "friends@frj@ig_1", "wave_e")
+	elseif anim == 21 then
+		PlayScenario("WORLD_HUMAN_LEANING","GENERIC_CURSE_MED" ,"SPEECH_PARAMS_FORCE")
+	elseif anim == 22 then
+		PlayScenario("WORLD_HUMAN_STUPOR","GENERIC_CURSE_MED" ,"SPEECH_PARAMS_FORCE")
+	elseif anim == 23 then
+		PlayScenario("WORLD_HUMAN_MUSCLE_FLEX","GENERIC_CURSE_MED" ,"SPEECH_PARAMS_FORCE")
+	elseif anim == 24 then
+		ClearPedTasksImmediately(GetPlayerPed(-1))
 	end
 end)
 
@@ -47,6 +89,5 @@ function PlayScenario(param1, param2, param3)
 		TaskStartScenarioInPlace(GetPlayerPed(-1), param1, 0, 1)
 		PlayAmbientSpeech1(GetPlayerPed(-1), param2, param3)
 		Citizen.Wait(20000)
-		ClearPedTasksImmediately(GetPlayerPed(-1))
 	end)
 end

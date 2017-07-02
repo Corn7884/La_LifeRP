@@ -19,7 +19,7 @@ function quitLastJob(source, job)
   elseif job == 4 then
     TriggerClientEvent("jobslegal:mineEnding", source)
   elseif job == 5 then
-
+    TriggerClientEvent("jobslegal:taxiEnding", source)
   elseif job == 6 then
     TriggerClientEvent("transporter:endingDay", source)
   elseif job == 7 then
@@ -35,7 +35,13 @@ function quitLastJob(source, job)
   elseif job == 12 then
     TriggerClientEvent("jobslegal:morgEnding", source)
   elseif job == 13 then
-    TriggerEvent('es_em:endingService', source, 0)
+	TriggerEvent('es_em:endingService', source, 0)
+  elseif job == 14 then
+    TriggerClientEvent("jobslegal:fermeEnding", source)
+  elseif job == 15 then
+    TriggerClientEvent("jobslegal:pecheEnding", source)
+  elseif job == 16 then
+    TriggerClientEvent("jobslegal:VigneEnding", source)
   end
 end
 
@@ -82,5 +88,21 @@ AddEventHandler('poleemploi:getjobss', function(source)
     else
       TriggerEvent("es:desyncMsg")
     end
+  end)
+end)
+
+RegisterServerEvent('poleemploi:getjobs')
+AddEventHandler('poleemploi:getjobs', function()
+  TriggerEvent('es:getPlayerFromId', source, function(user)
+        local source = source
+        TriggerClientEvent("ferme:getJobs", source, user:getJob())
+  end)
+end)
+
+RegisterServerEvent('poleemploi:getjobs')
+AddEventHandler('poleemploi:getjobs', function()
+  TriggerEvent('es:getPlayerFromId', source, function(user)
+        local source = source
+        TriggerClientEvent("peche:getJobs", source, user:getJob())
   end)
 end)

@@ -1,11 +1,18 @@
 inv_array_legal = {
     {name="Bouteille d'eau", id=1, price=5, value=20},
-    {name="Sandwich", id=2, price=10, value=20},
+    {name="Sandwich", id=2, price=100, value=40},
     {name="Filet Mignon", id=3, price=100, value=40},
+	{name="Pain", id=30,price=10,value=20},
+	{name="Sushi", id=33,price=100,value=40},
+	{name="Canette de Coca", id=34,price=20,value=80},
+	{name="Bouteille de vin", id=37,price=100,value=40},
+	{name="Canne à pèche", id=38,price=250,value=0},
+	{name="Poisson grillé", id=39,price=10,value=10},
 }
 
 inv_array = {
-    {name="Cuivre", id=17, price=100, value=0},
+    {name="Sandwich", id=2, price=100, value=40},
+	{name="Cuivre", id=17, price=100, value=0},
     {name="Fer", id=18, price=100, value=0},
     {name="Diamants", id=19, price=100, value=0},
     {name="Cuivre traité", id=20, price=100, value=0},
@@ -16,6 +23,17 @@ inv_array = {
     {name="Poisson", id=25, price=100, value=0},
     {name="Corps", id=26,price=100,value=0},
     {name="Corps traité", id=27,price=100,value=0},
+	{name="Blé", id=28,price=100,value=0},
+	{name="Farine", id=29,price=100,value=0},
+	{name="Pain", id=30,price=10,value=20},
+	{name="Poisson surgelé", id=31,price=20,value=20},
+	{name="Poisson nettoyé", id=32,price=20,value=20},
+	{name="Sushi", id=33,price=100,value=40},
+	{name="Canette de Coca", id=34,price=20,value=80},
+	{name="Grappe de raisin", id=35,price=100,value=2},
+	{name="Raisin", id=36,price=100,value=5},
+	{name="Bouteille de vin", id=37,price=100,value=40},
+	{name="Poisson grillé", id=39,price=100,value=10},
 }
 
 inv_array_illlegal = {
