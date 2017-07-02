@@ -1,5 +1,5 @@
 local blips = {
-  {name="Pole Emploi", colour=2, scale=1.2, id=351, x=-601.59295654297, y=-116.45598602295, z=41.734840393066},
+   {name="Pole Emploi", colour=2, scale=1.2, id=351, x=-601.59295654297, y=-116.45598602295, z=41.734840393066},
    -- Airport and Airfield
    {name="Aéroport", colour=15, scale=1.0, id=90, x=-1032.690, y=-2728.141, z=13.757},
    {name="Aéroport", colour=15, scale=1.0, id=90, x=1743.6820, y=3286.2510, z=40.087},
@@ -9,6 +9,11 @@ local blips = {
    --{name="Barber", id=71, x=-1291.472, y=-1117.230, z=6.641},
    {name="Coiffeur", colour=9, scale=1.0, id=71, x = 1933.6905517578, y = 3730.6245117188, z = 32.854434967041},
    {name="Coiffeur", colour=9, scale=1.0, id=71, x = 1211.2866210938, y = -474.07333374023, z = 66.218040466309},
+   {name="Coiffeur", colour=9, scale=1.0, id=71, x = -279.003, y = 6228.47, z = 31.6955},
+   {name="Coiffeur", colour=9, scale=1.0, id=71, x = -33.6095, y = -151.494, z = 57.0865},
+   {name="Coiffeur", colour=9, scale=1.0, id=71, x = -1283.48, y = -1118.76, z = 6.99979},
+   {name="Coiffeur", colour=9, scale=1.0, id=71, x = 137.257, y = -1708.91, z = 29.2916},
+   {name="Coiffeur", colour=9, scale=1.0, id=71, x = -814.941, y = -182.762, z = 37.5689},
    --{name="Barber", id=71, x=-30.109, y=-141.693, z=57.041},
    --{name="Barber", id=71, x=-285.238, y=6236.365, z=31.455},
    -- House
@@ -63,10 +68,23 @@ local blips = {
    {name="Magasin", colour=0, scale=0.9, id=52, ['x'] = -1821.3205566406, ['y'] = 793.60162353516, ['z'] = 138.11497497559},
    {name="Magasin", colour=0, scale=0.9, id=52, ['x'] = 1730.1866455078, ['y'] = 6417.048828125, ['z'] = 35.037227630615},
    {name="Magasin", colour=0, scale=0.9, id=52, ['x'] = 2555.2375488281, ['y'] = 382.17391967773, ['z'] = 108.62296295166},
+   {name="Magasin", colour=0, scale=0.9, id=52, ['x'] = 547.0283203125, ['y'] = 2670.9914550781, ['z'] = 42.156497955322},
+   {name="Magasin", colour=0, scale=0.9, id=52, ['x'] = -3243.7666015625, ['y'] = 1001.9181518555, ['z'] = 12.830718040466},
+   {name="Magasin", colour=0, scale=0.9, id=52, ['x'] = -3041.6613769531, ['y'] = 585.39251708984, ['z'] = 7.9089293479919},
     -- Clothing
-   {name="Vêtements", colour=9, scale=0.9, id=73, x = 1696.5310058594, y = 4828.109375, z = 42.063121795654},
-   {name="Vêtements", colour=9, scale=0.9, id=73, x = -162.85632324219, y = -303.03753662109, z = 39.733276367188},
-   {name="Vêtements", colour=9, scale=0.9, id=73, x= 72.531211853027, y= -1396.3240966797, z= 29.376146316528},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x = 1696.5310058594, y = 4828.109375, z = 42.063121795654},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x = -162.85632324219, y = -303.03753662109, z = 39.733276367188},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= 72.531211853027, y= -1396.3240966797, z= 29.376146316528},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= -709.571, y= -153.584, z= 37.4151},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= 428.669, y= -802.607, z= 29.4911},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= -828.539, y= -1072.74, z= 11.3281},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= -1450.89, y= -238.125, z= 49.8106},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= -710.053, y= -152.747, z= 37.4151},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= 125.662, y= -221.295, z= 54.5579},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= -1194.21, y= -769.347, z= 17.3193},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= 1863.74, y= 3747.74, z= 33.0319},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= 1197.82421875, y= 2702.5974121094, z= 38.156177520752},
+   {name="Boutique de vêtements", colour=9, scale=0.9, id=73, x= -3172.109375, y= 1049.0103759766, z= 20.863210678101},
   --  {name="Vêtements", colour=9, scale=0.9, id=73, x=-718.985, y=-158.059, z=36.996},
   --  {name="Vêtements", colour=9, scale=0.9, id=73, x=-151.204, y=-306.837, z=38.724},
   --  {name="Vêtements", colour=9, scale=0.9, id=73, x=414.646, y=-807.452, z=29.338},
@@ -100,7 +118,7 @@ local blips = {
    --{name="FIB", id=106, x=105.455, y=-745.483, z=44.754},
    --{name="Lifeinvader", id=77, x=-1047.900, y=-233.000, z=39.000},
    --{name="Cluckin Bell", id=357, x=-72.68752, y=6253.72656, z=31.08991},
-   --{name="Tequil-La La", id=93, x=-565.171, y=276.625, z=83.286},
+   {name="Tequil-La La", colour=70, scale=0.9, id=136, x=-565.171, y=276.625, z=83.286},
    --{name="O'Neil Ranch", id=438, x=2441.200, y=4968.500, z=51.700},
    --{name="Play Boy Mansion", id=439, x=-1475.234, y=167.088, z=55.841},
     --{name="Hippy Camp", id=140, x=2476.712, y=3789.645, z=41.226},
@@ -112,7 +130,7 @@ local blips = {
     -- Propperty
    --{name="Casino", id=207, x=925.329, y=46.152, z=80.908 },
    --{name="Maze Bank Arena", id=135, x=-250.604, y=-2030.000, z=30.000},
-   --{name="Stripbar", id=121, x=134.476, y=-1307.887, z=28.983},
+   {name="Stripbar", colour=83, scale=0.9, id=121, x=134.476, y=-1307.887, z=28.983},
    --{name="Smoke on the Water", id=140, x=-1171.42, y=-1572.72, z=3.6636},
     --{name="Weed Farm", id=140, x=2208.777, y=5578.235, z=53.735},
    --{name="Downtown Cab Co", id=375, x=900.461, y=-181.466, z=73.89},
@@ -150,7 +168,7 @@ local blips = {
    {name="Station Service", colour=76, scale=0.7, id=361, x=620.843,  y= 269.100,  z=103.089},
    {name="Station Service", colour=76, scale=0.7, id=361, x=2581.321, y=362.039, 108.468},
     -- Police Stations
-   {name="Commisariat", colour=3, scale=1.0, id=60, x=425.130, y=-979.558, z=30.711},
+   {name="Commisariat", colour=3, scale=1.0, id=60, x=425.18203735352, y=-980.2587890625, z=30.710},
    --{name="Police Station", id=60, x=1859.234, y= 3678.742, z=33.690},
    --{name="Police Station", id=60, x=-438.862, y=6020.768, z=31.490},
    --{name="Police Station", id=60, x=818.221, y=-1289.883, z=26.300},
@@ -164,6 +182,7 @@ local blips = {
    --{name="Hospital", id=61, x= -676.98, y= 310.68, z= 83.08},
    --{name="Hospital", id=61, x= 1151.21, y= -1529.62, z= 35.37},
    --{name="Hospital", id=61, x= -874.64, y= -307.71, z= 39.58},
+   {name="Cabinet de chirurgie esthétique", colour=3, scale=1.0, id=102, x= -506.998, y= -351.569, z= 35.2025},
     -- Vehicle Shop (Simeon)
    --{name="Simeon", id=120, x=-33.803, y=-1102.322, z=25.422},
     -- LS Customs
@@ -203,6 +222,7 @@ local blips = {
     -- Yacht
    --{name="Yacht", id=410, x=-2045.800, y=-1031.200, z=11.900},
    --{name="Cargoship", id=410, x=-90.000, y=-2365.800, z=14.300},
+   --{name="Grillade du poisson", colour=76, scale=0.9, id=436, x=25.66304397583, y=-1344.9215087891, z=29.497022628784},
   }
 
 Citizen.CreateThread(function()

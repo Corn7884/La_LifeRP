@@ -4,7 +4,7 @@ local giveCashAnywhere = false -- Allows the player to give CASH to another play
 local withdrawAnywhere = false -- Allows the player to withdraw cash from bank account anywhere (Default: false)
 local depositAnywhere = false -- Allows the player to deposit cash into bank account anywhere (Default: false)
 local displayBankBlips = true -- Toggles Bank Blips on the map (Default: true)
-local displayAtmBlips = false -- Toggles ATM blips on the map (Default: false) // THIS IS UGLY. SOME ICONS OVERLAP BECAUSE SOME PLACES HAVE MULTIPLE ATM MACHINES. NOT RECOMMENDED
+local displayAtmBlips = true -- Toggles ATM blips on the map (Default: false) // THIS IS UGLY. SOME ICONS OVERLAP BECAUSE SOME PLACES HAVE MULTIPLE ATM MACHINES. NOT RECOMMENDED
 local enableBankingGui = true -- Enables the banking GUI (Default: true) // MAY HAVE SOME ISSUES
 
 -- ATMS
@@ -114,6 +114,8 @@ Citizen.CreateThread(function()
       SetBlipSprite(item.blip, item.id)
       SetBlipAsShortRange(item.blip, true)
       BeginTextCommandSetBlipName("STRING")
+	  SetBlipColour(item.blip, 3)
+	  SetBlipScale(item.blip, 0.5)
       AddTextComponentString(item.name)
       EndTextCommandSetBlipName(item.blip)
     end
@@ -125,6 +127,12 @@ local atBank = false
 local atATM = false
 local bankOpen = false
 local atmOpen = false
+
+function DisplayHelpText(str)
+	SetTextComponentFormat("STRING")
+	AddTextComponentString(str)
+	DisplayHelpTextFromStringLabel(0, 0, 1, -1)
+end
 
 local playerName = ""
 RegisterNetEvent("es:f_getName")
@@ -165,12 +173,12 @@ if enableBankingGui then
       Citizen.Wait(0)
       if(IsNearBank() or IsNearATM()) then
         if (atBank == false) then
-          TriggerEvent('chatMessage', "", {0, 255, 0}, "^0Appuie sur E pour accéder à la banque");
+          DisplayHelpText("Appuie sur ~INPUT_CONTEXT~ acceder à la ~y~banque~w~ ")
         end
         atBank = true
-        if IsControlJustPressed(1, 38)  then -- IF INPUT_PICKUP Is pressed
+        if IsControlJustPressed(1, 51)  then -- IF INPUT_PICKUP Is pressed
           if (IsInVehicle()) then
-            TriggerEvent('chatMessage', "", {255, 0, 0}, "^1Tu ne peux pas accéder à la banque depuis ton véhicule!");
+            --TriggerEvent('chatMessage', "", {255, 0, 0}, "^1Tu ne peux pas accéder à la banque depuis ton véhicule!");
           else
             if bankOpen then
               closeGui()
@@ -288,7 +296,7 @@ function IsNearBank()
   local plyCoords = GetEntityCoords(ply, 0)
   for _, item in pairs(banks) do
     local distance = GetDistanceBetweenCoords(item.x, item.y, item.z,  plyCoords["x"], plyCoords["y"], plyCoords["z"], true)
-    if(distance <= 4) then
+    if(distance <= 2) then
       return true
     end
   end

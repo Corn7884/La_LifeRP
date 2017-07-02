@@ -185,7 +185,7 @@ function ShowWeashopBlips(bool)
 			local blip = AddBlipForCoord(pos[1],pos[2],pos[3])
 			-- 60 58 137
 			SetBlipSprite(blip,110)
-			SetBlipColour(blip, 0)
+			SetBlipColour(blip, 76)
 			SetBlipScale(blip, 0.9)
 			BeginTextCommandSetBlipName("STRING")
 			AddTextComponentString('Ammunation')

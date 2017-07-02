@@ -58,6 +58,7 @@ h1,h2,h3,h4 {
   margin: 0;
   margin-right: 6px;
   padding: 0;
+  padding-top: 46;
 }
 #add-balance {
   float:right;

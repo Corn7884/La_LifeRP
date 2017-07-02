@@ -79,7 +79,7 @@ $(document).ready(function(){
     var item = event.data;
     // Update HUD Balance
     if(item.updateBalance == true) {
-      // $('.balance').html('<p id="balance"><img id="icon" src="bank-icon.png" alt=""/>' +addGaps(event.data.balance)+'</p>');
+      $('.balance').html('<p id="balance"><img id="icon" src="bank-icon.png" alt=""/>' +addGaps(event.data.balance)+'</p>');
       $('.currentBalance').html('$'+addCommas(event.data.balance));
       $('.username').html(event.data.player);
     }
@@ -129,8 +129,8 @@ $(document).ready(function(){
 
     if(item.setDisplay == true) {
       $("#dbalance").css('visibility', item.display)
-      $("#balance").css('visibility', "hidden")
-      $("#transaction").css('visibility', "hidden")
+      $("#balance").css('visibility', "visible")
+      $("#transaction").css('visibility', "visible")
     }
     // Open & Close main bank window
     if(item.openBank == true) {
